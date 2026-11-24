@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kritika Teotia | Portfolio</title>
+<meta name="description" content="Kritika Teotia's portfolio - Web Development, AI, Data Analytics and AWS Cloud.">
+
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #080b14;
+  --card: #111827;
+  --purple: #9b8cff;
+  --blue: #4d9cff;
+  --text: #f5f5ff;
+  --muted: #a6aec2;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  width: 85%;
+  max-width: 1150px;
+  margin: auto;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #080b14ed;
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid #ffffff15;
+  padding: 18px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font: 700 30px 'Space Grotesk';
+  color: white;
+}
+
+.logo span {
+  color: var(--purple);
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--muted);
+  font-size: 13px;
+  transition: .3s;
+}
+
+.nav-links a:hover {
+  color: var(--purple);
+}
+
+.menu-btn {
+  display: none;
+  background: none;
+  color: white;
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.hero {
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  padding: 80px 0;
+}
+
+.hero-content {
+  flex: 1;
+}
+
+.tag {
+  display: inline-block;
+  border: 1px solid #8b7cff55;
+  color: var(--purple);
+  padding: 7px 15px;
+  border-radius: 30px;
+  font-size: 12px;
+  margin-bottom: 25px;
+}
+
+.hero h1 {
+  font: 700 clamp(55px, 8vw, 90px)/1.05 'Space Grotesk';
+  letter-spacing: -4px;
+}
+
+.hero h1 span {
+  display: block;
+  color: var(--purple);
+}
+
+.hero h2 {
+  margin: 20px 0;
+  font-size: 23px;
+  font-weight: 500;
+}
+
+.hero h2 span {
+  color: var(--blue);
+}
+
+.hero p {
+  color: var(--muted);
+  max-width: 550px;
+  font-size: 15px;
+  margin-bottom: 25px;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: .3s;
+}
+
+.primary {
+  background: linear-gradient(110deg, #765ce9, #398fe7);
+  color: white;
+}
+
+.secondary {
+  border: 1px solid #ffffff35;
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+}
+
+.socials {
+  display: flex;
+  gap: 22px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.socials a:hover {
+  color: var(--purple);
+}
+
+.hero-image {
+  flex: 0 0 310px;
+  height: 370px;
+  border-radius: 25px;
+  border: 2px solid var(--purple);
+  background: linear-gradient(145deg, #24204a, #111827);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 0 60px #7862e52b;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-placeholder {
+  font: 700 100px 'Space Grotesk';
+  color: var(--purple);
+}
+
+section {
+  padding: 90px 0;
+  border-top: 1px solid #ffffff12;
+}
+
+.section-label {
+  color: var(--purple);
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.section-title {
+  font: 700 clamp(30px, 4vw, 45px) 'Space Grotesk';
+  margin: 10px 0 12px;
+}
+
+.section-description {
+  color: var(--muted);
+  margin-bottom: 40px;
+  font-size: 14px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 45px;
+  align-items: center;
+}
+
+.about-text h3 {
+  font: 600 27px 'Space Grotesk';
+  margin-bottom: 18px;
+}
+
+.about-text h3 span {
+  color: var(--purple);
+}
+
+.about-text p {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.stat, .card {
+  background: var(--card);
+  border: 1px solid #ffffff15;
+  padding: 25px;
+  border-radius: 13px;
+  transition: .3s;
+}
+
+.stat:hover, .card:hover {
+  border-color: var(--purple);
+  transform: translateY(-5px);
+}
+
+.stat h3 {
+  font: 700 32px 'Space Grotesk';
+  color: var(--purple);
+}
+
+.stat p {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.card h3 {
+  font: 600 19px 'Space Grotesk';
+  margin: 12px 0;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.card-icon {
+  font-size: 27px;
+  color: var(--purple);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.tags span {
+  background: #ffffff0d;
+  border: 1px solid #ffffff15;
+  color: #c4c8d9;
+  padding: 6px 10px;
+  border-radius: 5px;
+  font-size: 11px;
+}
+
+.aws-banner {
+  padding: 30px;
+  border: 1px solid #7869e555;
+  border-radius: 14px;
+  background: linear-gradient(100deg, #292052, #142847);
+  margin-bottom: 20px;
+}
+
+.aws-banner h3 {
+  font: 600 24px 'Space Grotesk';
+  margin-bottom: 8px;
+}
+
+.aws-banner p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.aws-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.project-number {
+  color: var(--purple);
+  font-size: 12px;
+}
+
+.project-type {
+  color: var(--blue) !important;
+  margin-top: 20px;
+  font-size: 11px !important;
+}
+
+.timeline {
+  border-left: 2px solid #7765e8;
+  padding-left: 30px;
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: var(--purple);
+  border-radius: 50%;
+  left: -37px;
+  top: 5px;
+}
+
+.timeline-item h3 {
+  font: 600 23px 'Space Grotesk';
+}
+
+.timeline-item h4 {
+  color: var(--purple);
+  font-size: 14px;
+  margin: 5px 0 12px;
+}
+
+.timeline-item p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.date {
+  color: var(--blue);
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.education {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.education-icon {
+  font-size: 35px;
+  color: var(--purple);
+}
+
+.certificates {
+  border-top: 1px solid #ffffff20;
+}
+
+.certificate {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 5px;
+  border-bottom: 1px solid #ffffff20;
+  font-size: 14px;
+}
+
+.certificate span {
+  color: var(--purple);
+}
+
+.contact-box {
+  background: linear-gradient(120deg, #201b45, #111d34);
+  border: 1px solid #7869e555;
+  padding: 40px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.contact-box h3 {
+  font: 600 30px 'Space Grotesk';
+  margin: 10px 0;
+}
+
+.contact-box p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+footer {
+  border-top: 1px solid #ffffff15;
+  padding: 25px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+footer a:hover {
+  color: var(--purple);
+}
+
+@media(max-width: 850px) {
+  .menu-btn {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    padding: 25px;
+    background: #111827;
+    flex-direction: column;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .hero {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding-top: 50px;
+  }
+
+  .hero-image {
+    width: 250px;
+    height: 300px;
+    flex: none;
+  }
+
+  .hero p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .buttons, .socials {
+    justify-content: center;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .aws-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media(max-width: 550px) {
+  .container {
+    width: 90%;
+  }
+
+  section {
+    padding: 65px 0;
+  }
+
+  .grid, .aws-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 58px;
+  }
+
+  .contact-box {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 25px;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="#home" class="logo">K<span>.</span></a>
+
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#aws">AWS Cloud</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<main class="container">
+
+<!-- HERO -->
+<div class="hero" id="home">
+
+  <div class="hero-content">
+    <div class="tag">● BTech CSE Student | Open to Opportunities</div>
+
+    <h1>Kritika <span>Teotia.</span></h1>
+
+    <h2>Developer <span>&</span> Cloud Enthusiast</h2>
+
+    <p>
+      I am a Computer Science Engineering student passionate about
+      technology, web development, data analytics, artificial
+      intelligence and cloud computing. I enjoy learning,
+      experimenting and creating meaningful digital solutions.
+    </p>
+
+    <div class="buttons">
+      <a href="#projects" class="btn primary">Explore My Work ↗</a>
+      <a href="Kritika-Resume.pdf" target="_blank" class="btn secondary">
+        Download Resume ↓
+      </a>
+    </div>
+
+    <div class="socials">
+      <a href="https://github.com/Kritikateotia13" target="_blank">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/kritika-teotia-71b563321" target="_blank">LinkedIn ↗</a>
+      <a href="mailto:teotiakritika@gmail.com">Email ↗</a>
+    </div>
+  </div>
+
+  <div class="hero-image">
+    <div class="image-placeholder">K.</div>
+  </div>
+
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">01 — ABOUT ME</div>
+  <h2 class="section-title">A little about me.</h2>
+  <p class="section-description">Curiosity drives my learning. Technology inspires my work.</p>
+
+  <div class="about-grid">
+    <div class="about-text">
+      <h3>Building my journey through <span>technology and innovation.</span></h3>
+
+      <p>
+        I am a BTech Computer Science and Engineering student at
+        Dewan VS Group of Institutions, currently in my final year.
+        I have maintained a strong academic record with a CGPA of 9.2.
+      </p>
+
+      <p>
+        My academic journey has allowed me to explore web development,
+        data analytics, artificial intelligence and cloud computing.
+        I have also participated in technical events, hackathons,
+        debates and presentation competitions.
+      </p>
+
+      <p>
+        My current focus is on developing my technical skills in
+        AWS Cloud, software development, AI and data-driven solutions.
+      </p>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><h3>9.2</h3><p>CGPA</p></div>
+      <div class="stat"><h3>4+</h3><p>Projects</p></div>
+      <div class="stat"><h3>BTech</h3><p>Computer Science</p></div>
+      <div class="stat"><h3>AI +</h3><p>Cloud Learning</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">02 — MY TOOLKIT</div>
+  <h2 class="section-title">Skills & Technologies.</h2>
+  <p class="section-description">Tools and technologies I have explored through learning and projects.</p>
+
+  <div class="grid">
+    <div class="card">
+      <div class="card-icon">⌨</div>
+      <h3>Programming Languages</h3>
+      <div class="tags">
+        <span>Python</span><span>C</span><span>C++</span>
+        <span>Java</span><span>JavaScript</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">◈</div>
+      <h3>Web Development</h3>
+      <div class="tags">
+        <span>HTML</span><span>CSS</span><span>React</span>
+        <span>Responsive Design</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">✧</div>
+      <h3>Data & Artificial Intelligence</h3>
+      <div class="tags">
+        <span>Data Analytics</span><span>Data Visualization</span>
+        <span>Machine Learning</span><span>LLM APIs</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">▤</div>
+      <h3>Database & Tools</h3>
+      <div class="tags">
+        <span>MySQL</span><span>MongoDB</span>
+        <span>Git</span><span>GitHub</span><span>VS Code</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AWS CLOUD -->
+<section id="aws">
+  <div class="section-label">03 — CLOUD COMPUTING</div>
+  <h2 class="section-title">Exploring AWS Cloud.</h2>
+  <p class="section-description">My learning journey with Amazon Web Services and cloud fundamentals.</p>
+
+  <div class="aws-banner">
+    <h3>☁ Amazon Web Services</h3>
+    <p>Exploring cloud infrastructure, networking, storage, computing and serverless technologies.</p>
+  </div>
+
+  <div class="aws-grid">
+    <div class="card">
+      <div class="card-icon">▣</div>
+      <h3>Amazon EC2</h3>
+      <p>Virtual servers and scalable computing resources.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">▤</div>
+      <h3>Amazon S3</h3>
+      <p>Object storage, buckets and versioning.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">☁</div>
+      <h3>Amazon VPC</h3>
+      <p>Virtual networks, subnets and networking.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">◈</div>
+      <h3>AWS IAM</h3>
+      <p>Identity management, users, roles and permissions.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">λ</div>
+      <h3>AWS Lambda</h3>
+      <p>Serverless computing and event-driven execution.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">⌘</div>
+      <h3>API Gateway</h3>
+      <p>Creating and managing APIs.</p>
+    </div>
+  </div>
+
+  <p class="section-description" style="margin-top:20px">
+    These are services and concepts I have studied and explored as part of my cloud computing learning.
+  </p>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">04 — SELECTED WORK</div>
+  <h2 class="section-title">Things I've worked on.</h2>
+  <p class="section-description">Academic, personal and collaborative projects.</p>
+
+  <div class="grid">
+
+    <div class="card">
+      <span class="project-number">01 / PROJECT</span>
+      <p class="project-type">AI / MACHINE LEARNING</p>
+      <h3>Circle-Up</h3>
+      <p>
+        An AI-based User Role Similarity System designed to analyze
+        user roles and identify similarities using machine learning concepts.
+      </p>
+      <div class="tags">
+        <span>Python</span><span>Machine Learning</span>
+        <span>HTML</span><span>APIs</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="project-number">02 / PROJECT</span>
+      <p class="project-type">WEB DEVELOPMENT</p>
+      <h3>Shutter Saga</h3>
+      <p>
+        A photography portfolio website showcasing visual content
+        with MongoDB integration and Vercel deployment.
+      </p>
+      <div class="tags">
+        <span>Web Development</span><span>MongoDB</span><span>Vercel</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="project-number">03 / PROJECT</span>
+      <p class="project-type">GENERATIVE AI / FULL STACK</p>
+      <h3>Eva – Virtual Assistant</h3>
+      <p>
+        A team project featuring AI chat, voice interaction and
+        chat history management using Gemini API.
+      </p>
+      <div class="tags">
+        <span>React</span><span>Express</span>
+        <span>JavaScript</span><span>Gemini API</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="project-number">04 / PROJECT</span>
+      <p class="project-type">DISASTER MANAGEMENT</p>
+      <h3>HelpNet</h3>
+      <p>
+        A disaster management and volunteer coordination platform
+        connecting people who need help with volunteers and support resources.
+      </p>
+      <div class="tags">
+        <span>HTML</span><span>CSS</span><span>JavaScript</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">05 — EXPERIENCE</div>
+  <h2 class="section-title">Professional Experience.</h2>
+  <p class="section-description">Practical exposure and professional learning.</p>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <span class="date">SEPTEMBER 2025 — JANUARY 2026</span>
+      <h3>Frontend Developer</h3>
+      <h4>iNexarum Pvt. Ltd. · Hybrid</h4>
+      <p>
+        Worked on frontend modules, REST API integration,
+        MySQL database connectivity and query optimization.
+        Contributed to an LLM-based AI project and worked with
+        Java APIs for data processing and response handling.
+      </p>
+      <div class="tags">
+        <span>Frontend</span><span>REST APIs</span>
+        <span>MySQL</span><span>Java</span><span>LLM</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-label">06 — EDUCATION</div>
+  <h2 class="section-title">Academic Background.</h2>
+
+  <div class="card education">
+    <div class="education-icon">🎓</div>
+    <div>
+      <span class="date">2023 — 2027</span>
+      <h3>Bachelor of Technology</h3>
+      <p>Computer Science & Engineering</p>
+      <p>Dewan VS Group of Institutions</p>
+      <p style="color:var(--purple)">CGPA: 9.2</p>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATES -->
+<section id="certificates">
+  <div class="section-label">07 — CERTIFICATIONS</div>
+  <h2 class="section-title">Learning Never Stops.</h2>
+  <p class="section-description">Training programs and certifications.</p>
+
+  <div class="certificates">
+    <div class="certificate">
+      <span>01</span>
+      TATA GenAI Powered Data Analytics Job Simulation
+    </div>
+    <div class="certificate">
+      <span>02</span>
+      IIT Kanpur – Student Development Program in Data Science
+    </div>
+    <div class="certificate">
+      <span>03</span>
+      Accenture – Data Analytics and Visualization
+    </div>
+    <div class="certificate">
+      <span>04</span>
+      Python and MySQL Training Program
+    </div>
+    <div class="certificate">
+      <span>05</span>
+      AWS Cloud Practitioner Essentials
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">08 — GET IN TOUCH</div>
+  <h2 class="section-title">Let's Connect.</h2>
+  <p class="section-description">Have an opportunity or project idea? Feel free to reach out.</p>
+
+  <div class="contact-box">
+    <div>
+      <h3>Let's build something meaningful.</h3>
+      <p>Always open to learning, collaboration and new opportunities.</p>
+    </div>
+
+    <a class="btn primary" href="mailto:teotiakritika@gmail.com">
+      Send Me an Email ↗
+    </a>
+  </div>
+
+  <div class="socials" style="margin-top:30px">
+    <a href="mailto:teotiakritika@gmail.com">✉ teotiakritika@gmail.com</a>
+    <a href="https://github.com/Kritikateotia13" target="_blank">GitHub ↗</a>
+    <a href="https://www.linkedin.com/in/kritika-teotia-71b563321" target="_blank">LinkedIn ↗</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <a href="#home" class="logo">K<span>.</span></a>
+  <p>Designed & Built by Kritika Teotia © 2026</p>
+  <a href="#home">Back to top ↑</a>
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById("navLinks").classList.toggle("show");
+}
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+    document.getElementById("navLinks").classList.remove("show");
+  });
+});
+</script>
+
+</body>
+</html>
